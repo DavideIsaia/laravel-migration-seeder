@@ -24,8 +24,8 @@ class TrainsTableSeeder extends Seeder
         for ($i=0; $i < 10; $i++) {
             $train = new Train();
             $train -> company = $companies[rand(0, count($companies) - 1)];
-            $train -> departure_station = $faker -> city();
-            $train -> arrival_station = $faker -> city();
+            $train -> departure_station = $faker -> state();
+            $train -> arrival_station = $faker -> state();
             $train -> day_of_departure = $faker -> dateTimeInInterval('-1 day', '+2 days');
             $train -> time_departure = $faker -> time('H:i');
             $train -> time_arrival = $faker -> time('H:i');
