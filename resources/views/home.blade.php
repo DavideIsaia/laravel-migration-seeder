@@ -12,12 +12,15 @@
     <ul>
       @foreach ($trains as $train)
           <li>
-              <h2>{{ $train->company }} Codice Treno: {{ $train->train_code }}</h2>
+              <h1>{{ $train->company }}</h1>
+              <h2>Codice Treno: {{ $train->train_code }}</h2>
               <h3>Partenza da: {{ $train->departure_station }}</h3>
-              <span>Il: {{ $train->day_of_departure }} Alle ore: {{ $train->time_departure}}</span>
+              <span>Giorno: {{\Carbon\Carbon::parse($train->day_of_departure)->format('d/M/Y')}} Alle ore: {{\Carbon\Carbon::parse($train->time_departure)->format('H:i')}}</span>
               <h3>Arrivo a: {{ $train->arrival_station }}</h3>
-              <span>Alle ore: {{ $train->time_arrival}}</span>
-              <span>Numero vagoni: {{ $train->wagons_number }}</span>
+              <span>Alle ore: {{\Carbon\Carbon::parse($train->time_arrival)->format('H:i')}}</span>
+              <div>Numero vagoni: {{ $train->wagons_number }}</div>
+              <h5>Ritardo: {{ $train->on_time}}</h5>
+              <h2>Cancellato {{ $train->cancelled}}</h2>
           </li>
       @endforeach
     </ul>  
