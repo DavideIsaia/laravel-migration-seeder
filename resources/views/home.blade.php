@@ -19,8 +19,14 @@
               <h3>Arrivo a: {{ $train->arrival_station }}</h3>
               <span>Alle ore: {{\Carbon\Carbon::parse($train->time_arrival)->format('H:i')}}</span>
               <div>Numero vagoni: {{ $train->wagons_number }}</div>
-              <h5>Ritardo: {{ $train->on_time}}</h5>
-              <h2>Cancellato {{ $train->cancelled}}</h2>
+              @if ($train->on_time)
+              <h5 class="ok">In Orario</h5> 
+              @else     
+              <h5 class="warning">In Ritardo</h5>            
+              @endif
+              @if ($train->cancelled)
+              <h2 class="alert">Cancellato</h2>
+              @endif
           </li>
       @endforeach
     </ul>  

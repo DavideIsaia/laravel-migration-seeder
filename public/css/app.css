@@ -37,6 +37,18 @@ li div {
   margin: 1rem 0;
 }
 li:hover {
-  background-color: gold;
+  background-color: gray;
   color: black;
+}
+
+.ok {
+  color: lightgreen;
+}
+
+.warning {
+  color: goldenrod;
+}
+
+.alert {
+  color: red;
 }
