@@ -26,11 +26,13 @@ class TrainsTableSeeder extends Seeder
             $train -> company = $companies[rand(0, count($companies) - 1)];
             $train -> departure_station = $faker -> city();
             $train -> arrival_station = $faker -> city();
-            $train -> time_departure = $faker -> time();
-            $train -> time_arrival = $faker -> time();
+            $train -> day_of_departure = $faker -> dateTimeInInterval('-1 day', '+2 days');
+            $train -> time_departure = $faker -> time('H:i');
+            $train -> time_arrival = $faker -> time('H:i');
             $train -> train_code = $faker -> regexify('[A-Z]{4}[0-9]{4}');
             $train -> wagons_number = $faker -> numberBetween(4, 40);
             $train -> on_time = $faker -> boolean();
+            $train -> cancelled = $faker -> boolean();
             $train -> save();
         }
     }
