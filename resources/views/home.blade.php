@@ -17,7 +17,8 @@
           <h3>Partenza da: {{ $train->departure_station }}</h3>
           <span>Giorno: {{\Carbon\Carbon::parse($train->day_of_departure)->format('d/M/Y')}} Alle ore: {{\Carbon\Carbon::parse($train->time_departure)->format('H:i')}}</span>
           <h3>Arrivo a: {{ $train->arrival_station }}</h3>
-          <span>Alle ore: {{\Carbon\Carbon::parse($train->time_arrival)->format('H:i')}}</span>
+          <span>Alle ore: {{\Carbon\Carbon::parse($train->time_arrival)->format(
+            'H:i')}}</span>
           <div>Numero vagoni: {{ $train->wagons_number }}</div>
           @if ($train->on_time && !$train->cancelled)
           <h5 class="ok">In Orario</h5> 
